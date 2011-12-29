@@ -32,16 +32,8 @@ given. The package provides a Perl program that will extract
 any of the sections of such a file, in particular providing a
 'text'-form EPS file for use with (La)TeX.
 
-%pre
-    %{_sbindir}/texlive.post
-
 %post
     %{_sbindir}/texlive.post
-
-%preun
-    if [ $1 -eq 0 ]; then
-	%{_sbindir}/texlive.post
-    fi
 
 %postun
     if [ $1 -eq 0 ]; then
@@ -66,7 +58,6 @@ any of the sections of such a file, in particular providing a
 %doc %{_texmfdistdir}/source/support/dosepsbin/configure
 %doc %{_texmfdistdir}/source/support/dosepsbin/configure.ac
 %doc %{_texmfdistdir}/source/support/dosepsbin/install-sh
-%doc %{_tlpkgobjdir}/*.tlpobj
 
 #-----------------------------------------------------------------------
 %prep
@@ -83,5 +74,3 @@ mkdir -p %{buildroot}%{_datadir}
 cp -fpar texmf texmf-dist %{buildroot}%{_datadir}
 mkdir -p %{buildroot}%{_mandir}/man1
 mv %{buildroot}%{_texmfdir}/doc/man/man1/*.1 %{buildroot}%{_mandir}/man1
-mkdir -p %{buildroot}%{_tlpkgobjdir}
-cp -fpa tlpkg/tlpobj/*.tlpobj %{buildroot}%{_tlpkgobjdir}

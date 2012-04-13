@@ -1,4 +1,4 @@
-# revision 24774
+# revision 25808
 # category Package
 # catalog-ctan /support/dosepsbin
 # catalog-date 2012-03-22 21:51:23 +0100

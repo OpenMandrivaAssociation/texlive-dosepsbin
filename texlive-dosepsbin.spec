@@ -1,12 +1,12 @@
 # revision 24774
 # category Package
 # catalog-ctan /support/dosepsbin
-# catalog-date 2011-12-05 13:17:14 +0100
+# catalog-date 2012-03-22 21:51:23 +0100
 # catalog-license artistic
-# catalog-version 1.1
+# catalog-version 1.2
 Name:		texlive-dosepsbin
-Version:	1.1
-Release:	2
+Version:	1.2
+Release:	1
 Summary:	Deal with DOS binary EPS files
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/support/dosepsbin

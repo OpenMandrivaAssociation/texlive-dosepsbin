@@ -1,4 +1,4 @@
-# revision 26313
+# revision 29752
 # category Package
 # catalog-ctan /support/dosepsbin
 # catalog-date 2012-03-22 21:51:23 +0100
@@ -6,7 +6,7 @@
 # catalog-version 1.2
 Name:		texlive-dosepsbin
 Version:	1.2
-Release:	2
+Release:	3
 Summary:	Deal with DOS binary EPS files
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/support/dosepsbin
@@ -44,6 +44,8 @@ any of the sections of such a file, in particular providing a
 %files
 %{_bindir}/dosepsbin
 %{_texmfdistdir}/scripts/dosepsbin/dosepsbin.pl
+%doc %{_mandir}/man1/dosepsbin.1*
+%doc %{_texmfdistdir}/doc/man/man1/dosepsbin.man1.pdf
 %doc %{_texmfdistdir}/doc/support/dosepsbin/Makefile.in
 %doc %{_texmfdistdir}/doc/support/dosepsbin/README
 %doc %{_texmfdistdir}/doc/support/dosepsbin/clean-case.pl
@@ -52,8 +54,6 @@ any of the sections of such a file, in particular providing a
 %doc %{_texmfdistdir}/doc/support/dosepsbin/dosepsbin.pdf
 %doc %{_texmfdistdir}/doc/support/dosepsbin/dosepsbin.txt
 %doc %{_texmfdistdir}/doc/support/dosepsbin/version.pl
-%doc %{_mandir}/man1/dosepsbin.1*
-%doc %{_texmfdir}/doc/man/man1/dosepsbin.man1.pdf
 #- source
 %doc %{_texmfdistdir}/source/support/dosepsbin/configure
 %doc %{_texmfdistdir}/source/support/dosepsbin/configure.ac
@@ -71,26 +71,6 @@ pushd %{buildroot}%{_bindir}
     ln -sf %{_texmfdistdir}/scripts/dosepsbin/dosepsbin.pl dosepsbin
 popd
 mkdir -p %{buildroot}%{_datadir}
-cp -fpar texmf texmf-dist %{buildroot}%{_datadir}
+cp -fpar texmf-dist %{buildroot}%{_datadir}
 mkdir -p %{buildroot}%{_mandir}/man1
-mv %{buildroot}%{_texmfdir}/doc/man/man1/*.1 %{buildroot}%{_mandir}/man1
-
-
-%changelog
-* Tue Aug 07 2012 Paulo Andrade <pcpa@mandriva.com.br> 1.2-2
-+ Revision: 812220
-- Update to latest release.
-
-* Fri Apr 13 2012 Paulo Andrade <pcpa@mandriva.com.br> 1.2-1
-+ Revision: 790563
-- Update to latest release.
-
-* Wed Jan 04 2012 Paulo Andrade <pcpa@mandriva.com.br> 1.1-2
-+ Revision: 751012
-- Rebuild to reduce used resources
-
-* Fri Dec 09 2011 Paulo Andrade <pcpa@mandriva.com.br> 1.1-1
-+ Revision: 739608
-- texlive-dosepsbin
-- texlive-dosepsbin
-
+mv %{buildroot}%{_texmfdistdir}/doc/man/man1/*.1 %{buildroot}%{_mandir}/man1

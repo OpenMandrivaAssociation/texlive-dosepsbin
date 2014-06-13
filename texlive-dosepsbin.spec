@@ -6,7 +6,7 @@
 # catalog-version 1.2
 Name:		texlive-dosepsbin
 Version:	1.2
-Release:	7
+Release:	8
 Summary:	Deal with DOS binary EPS files
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/support/dosepsbin

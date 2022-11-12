@@ -1,19 +1,13 @@
-# revision 29752
-# category Package
-# catalog-ctan /support/dosepsbin
-# catalog-date 2012-03-22 21:51:23 +0100
-# catalog-license artistic
-# catalog-version 1.2
 Name:		texlive-dosepsbin
-Version:	1.2
-Release:	12
+Version:	29752
+Release:	1
 Summary:	Deal with DOS binary EPS files
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/support/dosepsbin
 License:	ARTISTIC
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/dosepsbin.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/dosepsbin.doc.tar.xz
-Source2:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/dosepsbin.source.tar.xz
+Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/dosepsbin.r%{version}.tar.xz
+Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/dosepsbin.doc.r%{version}.tar.xz
+Source2:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/dosepsbin.source.r%{version}.tar.xz
 BuildArch:	noarch
 BuildRequires:	texlive-tlpkg
 Requires(pre):	texlive-tlpkg
@@ -33,12 +27,12 @@ any of the sections of such a file, in particular providing a
 'text'-form EPS file for use with (La)TeX.
 
 %post
-    %{_sbindir}/texlive.post
+%{_sbindir}/texlive.post
 
 %postun
-    if [ $1 -eq 0 ]; then
+if [ $1 -eq 0 ]; then
 	%{_sbindir}/texlive.post
-    fi
+fi
 
 #-----------------------------------------------------------------------
 %files
@@ -61,14 +55,15 @@ any of the sections of such a file, in particular providing a
 
 #-----------------------------------------------------------------------
 %prep
-%setup -c -a0 -a1 -a2
+%setup -c -a1 -a2
+%autopatch -p1
 
 %build
 
 %install
 mkdir -p %{buildroot}%{_bindir}
 pushd %{buildroot}%{_bindir}
-    ln -sf %{_texmfdistdir}/scripts/dosepsbin/dosepsbin.pl dosepsbin
+ln -sf %{_texmfdistdir}/scripts/dosepsbin/dosepsbin.pl dosepsbin
 popd
 mkdir -p %{buildroot}%{_datadir}
 cp -fpar texmf-dist %{buildroot}%{_datadir}

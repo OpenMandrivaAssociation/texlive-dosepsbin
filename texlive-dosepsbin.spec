@@ -1,6 +1,6 @@
 Name:		texlive-dosepsbin
 Version:	29752
-Release:	1
+Release:	2
 Summary:	Deal with DOS binary EPS files
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/support/dosepsbin

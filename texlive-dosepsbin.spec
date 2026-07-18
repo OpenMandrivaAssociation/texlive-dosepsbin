@@ -1,5 +1,6 @@
 %global tl_name dosepsbin
 %global tl_revision 29752
+%global tl_bin_links dosepsbin:%{_texmfdistdir}/scripts/dosepsbin/dosepsbin.pl
 
 Name:		texlive-%{tl_name}
 Epoch:		1
@@ -16,6 +17,8 @@ BuildArch:	noarch
 BuildSystem:	texlive
 Requires:	texlive(dosepsbin.bin)
 Provides:	texlive(%{tl_name}) = %{tl_revision}
+Provides:	texlive(%{tl_name}.bin) = %{tl_revision}
+Provides:	texlive-%{tl_name}.bin = %{EVRD}
 
 %description
 A Encapsulated PostScript (EPS) file may given in a special binary
